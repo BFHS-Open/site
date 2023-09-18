@@ -1,0 +1,174 @@
+html, body {
+    margin: 0;
+}
+
+html {
+    /*
+    hack for dynamic unit
+    1rem = 1in when width of camera is 1920px
+    */
+    font-size: calc(0.05 * min(100vw, calc(100vh * 4 / 3)));
+}
+
+body {
+    font-size: 16px;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera {
+    position: relative;
+    width: min(100vw, calc(100vh * 4 / 3));
+    height: min(100vh, calc(100vw * 3 / 4));
+    background: radial-gradient(circle at 50% -100%, #404040, #101010);
+    perspective: 18rem;
+    overflow: hidden;
+}
+
+.world {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translateZ(10rem) rotateX(0) translateZ(-10rem);
+    transition: transform 2s ease-in-out;
+    pointer-events: none;
+}
+
+.computer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12rem;
+    height: 9rem;
+    transform:
+        translate(-50%,-50%)
+        rotateX(10deg)
+    ;
+    background-color: #606060;
+    box-shadow: inset 0 0 4px #202020;
+    pointer-events: all;
+    --screen-color: lime;
+}
+
+/*
+https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh
+http://aleclownes.com/2017/02/01/crt-display.html
+https://css-tricks.com/old-timey-terminal-styling/
+*/
+.screen {
+    position: absolute;
+    top: .2rem;
+    right: .2rem;
+    bottom: .2rem;
+    left: .2rem;
+    background:
+        radial-gradient(
+            color-mix(in srgb, var(--screen-color) 12.5%, black), transparent 150%
+        ),
+        #202020
+    ;
+    padding: 1em;
+    box-shadow: 0 0 4px color-mix(in srgb, var(--screen-color), transparent);
+    text-shadow: 0 0 2px var(--screen-color);
+    font-family: "Consolas";
+    font-size: 24px;
+    color: var(--screen-color);
+}
+
+.screen::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background:
+        linear-gradient(
+            rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.06),
+            rgba(0, 255, 0, 0.02),
+            rgba(0, 0, 255, 0.06)
+        )
+    ;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.content {
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.cli {
+    margin: 0;
+    display: inline;
+    white-space: break-spaces;
+    word-break: break-all;
+}
+
+.input {
+    display: inline;
+    outline: none;
+    white-space: break-spaces;
+    word-break: break-all;
+}
+
+.input.empty {
+    caret-color: transparent;
+}
+
+@keyframes cursor {
+    0% {
+        visibility: visible;
+    }
+    50% {
+        visibility: hidden;
+    }
+}
+
+.input.empty::after {
+    content: "█";
+    animation: cursor 1s infinite step-end;
+}
+
+.paper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8.5rem;
+    height: 11rem;
+    background-color: beige;
+    padding: 1rem;
+    transform:
+        translate(-50%,-50%)
+        translate3d(0,5rem,8rem)
+        rotateX(90deg)
+    ;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    font-size: 12pt;
+    font-family: "Courier New";
+    pointer-events: all;
+}
+
+:is(.computer, .paper):hover:not(.selected) {
+    outline: white solid 10px;
+}
