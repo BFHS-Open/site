@@ -32,12 +32,12 @@ body {
     overflow: hidden;
 }
 
-.world {
+#world {
     position: relative;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transform: translateZ(10rem) rotateX(0) translateZ(-10rem);
+    transform: translateZ(0) rotateX(0) translateZ(-0);
     transition: transform 2s ease-in-out;
     pointer-events: none;
 }
@@ -53,7 +53,7 @@ body {
         rotateX(10deg)
     ;
     background-color: #606060;
-    box-shadow: inset 0 0 4px #202020;
+    box-shadow: inset 0 0 calc(1rem / 24) #202020;
     pointer-events: all;
     --screen-color: lime;
 }
@@ -65,19 +65,19 @@ https://css-tricks.com/old-timey-terminal-styling/
 */
 .screen {
     position: absolute;
-    top: .2rem;
-    right: .2rem;
-    bottom: .2rem;
-    left: .2rem;
+    top: .25rem;
+    right: .25rem;
+    bottom: .25rem;
+    left: .25rem;
     background:
         radial-gradient(
             color-mix(in srgb, var(--screen-color) 12.5%, black), transparent 150%
         ),
         #202020
     ;
-    padding: 1em;
-    box-shadow: 0 0 4px color-mix(in srgb, var(--screen-color), transparent);
-    text-shadow: 0 0 2px var(--screen-color);
+    padding: .5rem;
+    box-shadow: 0 0 .04rem color-mix(in srgb, var(--screen-color), transparent);
+    text-shadow: 0 0 calc(1rem / 24) var(--screen-color);
     font-family: "Consolas";
     font-size: 24px;
     color: var(--screen-color);
@@ -117,18 +117,12 @@ https://css-tricks.com/old-timey-terminal-styling/
     display: none;
 }
 
-.cli {
+.output, .input {
     margin: 0;
     display: inline;
     white-space: break-spaces;
     word-break: break-all;
-}
-
-.input {
-    display: inline;
     outline: none;
-    white-space: break-spaces;
-    word-break: break-all;
 }
 
 .input.empty {
