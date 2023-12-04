@@ -110,11 +110,17 @@ https://css-tricks.com/old-timey-terminal-styling/
 .content {
     height: 100%;
     overflow-y: scroll;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--screen-color) transparent;
 }
 
 .content::-webkit-scrollbar {
-    display: none;
+    width: calc(1rem / 24);
+    background-color: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background-color: var(--screen-color);
 }
 
 .output, .input {
@@ -157,12 +163,22 @@ https://css-tricks.com/old-timey-terminal-styling/
         rotateX(90deg)
     ;
     overflow-y: scroll;
-    scrollbar-width: none;
     font-size: 12pt;
     font-family: "Courier New";
     pointer-events: all;
+    scrollbar-width: thin;
+    scrollbar-color: black transparent;
+}
+
+.paper::-webkit-scrollbar {
+    width: calc(1rem / 8);
+    background-color: transparent;
+}
+
+.paper::-webkit-scrollbar-thumb {
+    background-color: #00000080;
 }
 
 :is(.computer, .paper):hover:not(.selected) {
-    outline: white solid 10px;
+    outline: white solid .25rem;
 }
