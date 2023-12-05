@@ -1,12 +1,8 @@
 export default class World {
-    /**
-     * @param {HTMLElement} root
-     * @param {{
-     *     elem: HTMLElement,
-     *     transform: string,
-     * }[]} objects
-     */
-    constructor(root, objects) {
+    public root: HTMLElement;
+    public selected: HTMLElement;
+
+    constructor(root: HTMLElement, objects: { elem: HTMLElement, transform: string }[]) {
         this.root = root;
         this.selected = objects[0].elem;
         const self = this;

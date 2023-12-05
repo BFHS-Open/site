@@ -1,21 +1,13 @@
-/**
- * @param {number} ms 
- * @returns {Promise<void>}
- */
-export const sleep = (ms) => new Promise((res) => {
+export const sleep = (ms: number) => new Promise((res) => {
     setInterval(res, ms);
 });
 
-/**
- * @param {HTMLElement} elem 
- * @param {string} text 
- */
-const type = (elem, text) => {
-    const sel = window.getSelection();
-    const content = elem.textContent;
+const type = (elem: HTMLElement, text: string) => {
+    const sel = window.getSelection()!;
+    const content = elem.textContent!;
     const [start, end] = [
-        sel.anchorOffset * (sel.anchorNode === elem ? elem.textContent.length : 1),
-        sel.focusOffset * (sel.focusNode === elem ? elem.textContent.length : 1),
+        sel.anchorOffset * (sel.anchorNode === elem ? content.length : 1),
+        sel.focusOffset * (sel.focusNode === elem ? content.length : 1),
     ].sort((a,b) => a - b);
     elem.textContent = content.slice(0, start) + text + content.slice(end);
 
@@ -31,9 +23,8 @@ const type = (elem, text) => {
 /**
  * For Firefox.
  * Based on https://stackoverflow.com/a/64001839
- * @param { HTMLElement } elem
  */
-export const polyfillPlaintextOnly = (elem) => {
+export const polyfillPlaintextOnly = (elem: HTMLElement) => {
     if (elem.contentEditable === "plaintext-only") return;
 
     elem.contentEditable = "true";
@@ -43,7 +34,7 @@ export const polyfillPlaintextOnly = (elem) => {
     });
     elem.addEventListener("paste", function(e) {
         e.preventDefault();
-        type(this, e.clipboardData.getData("text/plain"));
+        type(this, e.clipboardData!.getData("text/plain"));
     });
     // fixes Firefox inserting a <br>
     elem.addEventListener("input", function(e) {

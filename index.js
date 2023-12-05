@@ -1,5 +1,5 @@
-import Monitor from "./js/monitor.js";
-import World from "./js/world.js";
+import Monitor from "./build/monitor.js";
+import World from "./build/world.js";
 
 const comp = document.getElementById("comp");
 
