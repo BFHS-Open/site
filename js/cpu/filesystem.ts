@@ -111,4 +111,19 @@ export class Filesystem {
         if (entry.type !== "dir") throw "not a directory";
         return entry.entrys;
     }
+
+    async remove(path: string) {
+        const names = parse(path);
+        if (names.length === 0) throw "no name specified";
+        const target = names.pop()!;
+        const dir = await this.walk(this.root, names);
+
+        const entry = await promisify(this.db.transaction("files").objectStore("files").get(dir) as IDBRequest<Entry>);
+        if (entry.type !== "dir") throw "not a directory";
+        if (!(target in entry.entrys)) throw "item doesn't exist";
+
+        delete entry.entrys[target];
+        await promisify(this.db.transaction("files", "readwrite").objectStore("files").put(entry, dir));
+        // TODO: fix memory leak
+    }
 }

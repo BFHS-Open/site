@@ -28,8 +28,8 @@ const text1s = `Welcome to the
 `;
 
 const text2 = `
-Run "help" on this awful terminal
-or click on the paper to look down!
+Run "help" on this terminal
+and/or click on the paper to look down!
 
 > `;
 

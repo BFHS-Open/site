@@ -11,6 +11,18 @@ const comp = <div id="comp" class="computer object">
 </div>;
 
 const paper = <div class="paper object">
+    <h1>CLUB WEBSITE MANUAL<br />and<br />CAKE DISPENSARY</h1>
+    <p>
+        Click on stuff to look at it.
+        You probably figured that one out already,
+        but did you know you can press <kbd>Esc</kbd> to zoom back out???
+    </p>
+    <p>
+        The terminal's filesystem requires IndexedDB permissions.
+    </p>
+    <p>
+        Good luck!
+    </p>
     <h2>About the club</h2>
     <p>
         Lorem ipsum dolor sit amet,
@@ -25,9 +37,44 @@ const paper = <div class="paper object">
     <p>
     Officers:
         <ul>
-            <li>Alice</li>
-            <li>Bob</li>
+            <li><b>President:</b> Joe</li>
+            <li><b>Vice President:</b> Austin</li>
+            <li><b>Secretary:</b> Thomas</li>
+            <li><b>Outreach Director:</b> Xindi</li>
+            <li><b>Tech Lead:</b> Jonathan</li>
+            <li><b>Contributing Members:</b> Eden, Oscar</li>
         </ul>
+    </p>
+    <h2>About this site</h2>
+    <p>
+        This is a prototype.
+        Maybe it really is cooler than a plain old 2D site,
+        or maybe it isn't and we'll work on something else.
+    </p>
+    <p>
+        Everything here is HTML/CSS/JS, with no client-side libraries!
+        (Only TypeScript and webpack are used for development.)
+        Maybe I should research libraries more.
+        I still can't believe web browsers support really decent basic 3D!!!
+    </p>
+    <p>
+        By the way, try zooming in and out, or resizing your browser window.
+        Accessibility!!
+        In fact, the terminal supports selections and copy-pasting
+        via a few shims on a "contenteditable" element.
+        Actually you can select any text on this site.
+        Except the blinking cursor character. Cool effect, huh?
+    </p>
+    <p>
+        This site's source code is available <a target="_blank" rel="noreferrer" href="https://github.com/BFHS-Open/site">here</a>.
+        It's licensed under the ISC License,
+        which according to Wikipedia is (hopefully) just the MIT License but more concise.
+    </p>
+    <p>
+        Have fun!
+    </p>
+    <p>
+        -Austin
     </p>
 </div>;
 

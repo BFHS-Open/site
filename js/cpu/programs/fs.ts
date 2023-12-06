@@ -64,3 +64,16 @@ export const ls: Program = async (sys, argv) => {
         return;
     }
 };
+
+export const rm: Program = async (sys, argv) => {
+    if (argv.length < 2) {
+        sys.out("need argument\n");
+        return;
+    }
+    try {
+        await sys.monitor.computer.filesystem.remove(argv[1]);
+    } catch (err) {
+        sys.out(`${err}\n`);
+        return;
+    }
+};

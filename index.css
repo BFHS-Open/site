@@ -161,6 +161,15 @@ https://css-tricks.com/old-timey-terminal-styling/
     scrollbar-color: black transparent;
 }
 
+.paper h1 {
+    text-align: center;
+}
+
+.paper kbd {
+    font-family: "Courier New";
+    font-weight: bold;
+}
+
 .paper::-webkit-scrollbar {
     width: calc(1rem / 8);
     background-color: transparent;
