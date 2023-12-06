@@ -4,6 +4,13 @@
         "strict": true,
         "sourceMap": true,
         "outDir": "./build/",
+
+        "jsx": "react-jsx",
+        // worst hack ever
+        "jsxImportSource": "/build/jsx-runtime.js#",
+        "paths": {
+            "/build/jsx-runtime.js#/*": ["./js/jsx-runtime.js"],
+        },
     },
     "include": ["./js/**/*"],
 }

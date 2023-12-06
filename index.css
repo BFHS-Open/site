@@ -33,28 +33,21 @@ body {
 }
 
 #world {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transform: translateZ(0) rotateX(0) translateZ(-0);
+    transform: rotateX(-10deg) rotateY(10deg) translate3d(15rem,48rem,-100rem);
     transition: transform 2s ease-in-out;
-    pointer-events: none;
 }
 
 .computer {
-    position: absolute;
-    left: 50%;
-    top: 50%;
     width: 12rem;
     height: 9rem;
     transform:
         translate(-50%,-50%)
+        translate3d(-5rem,-35rem,1rem)
+        rotateY(10deg)
         rotateX(10deg)
     ;
     background-color: #606060;
     box-shadow: inset 0 0 calc(1rem / 24) #202020;
-    pointer-events: all;
     --screen-color: lime;
 }
 
@@ -150,22 +143,20 @@ https://css-tricks.com/old-timey-terminal-styling/
 }
 
 .paper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
     width: 8.5rem;
     height: 11rem;
     background-color: beige;
     padding: 1rem;
     transform:
         translate(-50%,-50%)
-        translate3d(0,5rem,8rem)
+        translateY(-30.01rem)
         rotateX(90deg)
+        translate(7rem,5rem)
+        rotate(10deg)
     ;
     overflow-y: scroll;
     font-size: 12pt;
     font-family: "Courier New";
-    pointer-events: all;
     scrollbar-width: thin;
     scrollbar-color: black transparent;
 }
@@ -179,6 +170,22 @@ https://css-tricks.com/old-timey-terminal-styling/
     background-color: #00000080;
 }
 
-:is(.computer, .paper):hover:not(.selected) {
+.object, .group {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.object {
+    box-sizing: border-box;
+    border: 8px solid black;
+}
+
+.object:hover:not(.selected) {
     outline: white solid .25rem;
+}
+
+.group {
+    transform-style: preserve-3d;
+    pointer-events: none;
 }

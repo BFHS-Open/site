@@ -45,3 +45,11 @@ export const polyfillPlaintextOnly = (elem: HTMLElement) => {
         elem.focus();
     }
 };
+
+export const makeStyle = ({ color = "transparent", width = 0, height = 0, pos, center = true }: { color?: string, width?: number, height?: number, pos: string, center?: boolean }) => {
+    return `
+        background-color: ${color};
+        width: ${width}rem;
+        height: ${height}rem;
+        transform: ${center ? "translate(-50%,-50%)" : ""} ${pos}`;
+};
