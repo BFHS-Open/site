@@ -83,6 +83,7 @@ export default class Monitor {
     }
 
     async boot() {
+        await this.computer.init();
         await sleep(800);
         const size = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
         this.print(size < 76 ? text1s : text1);
