@@ -1,4 +1,4 @@
-import type { Program } from "../program.js";
+import type { Program } from "../program";
 
 export default (async (sys, argv) => {
     const hue = argv[1] === undefined ? Math.random() : +argv[1]/360;

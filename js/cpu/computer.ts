@@ -1,9 +1,9 @@
-import type Monitor from "../monitor.js";
-import type { Program } from "./program.js";
-import help from "./programs/help.js";
-import color from "./programs/color.js";
-import { mkdir, touch, cat, writeFile, ls } from "./programs/fs.js";
-import { Filesystem } from "./filesystem.js";
+import type Monitor from "../monitor";
+import type { Program } from "./program";
+import help from "./programs/help";
+import color from "./programs/color";
+import { mkdir, touch, cat, writeFile, ls } from "./programs/fs";
+import { Filesystem } from "./filesystem";
 
 export class Computer {
     public monitor: Monitor;

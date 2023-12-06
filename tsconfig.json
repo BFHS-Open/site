@@ -6,11 +6,12 @@
         "outDir": "./build/",
 
         "jsx": "react-jsx",
-        // worst hack ever
-        "jsxImportSource": "/build/jsx-runtime.js#",
+        "jsxImportSource": "root",
         "paths": {
-            "/build/jsx-runtime.js#/*": ["./js/jsx-runtime.js"],
+            "root/*": ["./js/*"],
         },
+
+        "moduleResolution": "bundler",
     },
     "include": ["./js/**/*"],
 }

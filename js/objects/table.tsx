@@ -1,4 +1,4 @@
-import { makeStyle } from "../utils.js";
+import { makeStyle } from "../utils";
 
 const thick = 1;
 

@@ -1,7 +1,6 @@
-import Monitor from "./monitor.js";
-import World from "./world.js";
-import { makeTable } from "./objects/table.js";
-import { makeStyle } from "./utils.js";
+import Monitor from "./monitor";
+import World from "./world";
+import { makeTable } from "./objects/table";
 
 const comp = <div id="comp" class="computer object">
     <div class="screen">

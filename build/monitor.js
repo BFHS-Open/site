@@ -1,5 +1,5 @@
-import { Computer } from "./cpu/computer.js";
-import { sleep, polyfillPlaintextOnly } from "./utils.js";
+import { Computer } from "./cpu/computer";
+import { sleep, polyfillPlaintextOnly } from "./utils";
 const text1 = `Welcome to the
 
 ██████╗░███████╗██╗░░██╗░██████╗

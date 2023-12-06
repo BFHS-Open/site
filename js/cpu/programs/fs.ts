@@ -1,4 +1,4 @@
-import type { Program } from "../program.js";
+import type { Program } from "../program";
 
 export const mkdir: Program = async (sys, argv) => {
     if (argv.length < 2) {
