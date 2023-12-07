@@ -35,6 +35,7 @@ body {
 #world {
     transform: rotateX(-10deg) rotateY(10deg) translate3d(15rem,48rem,-100rem);
     transition: transform 2s ease-in-out;
+    --border-width: 8px;
 }
 
 .computer {
@@ -146,7 +147,6 @@ https://css-tricks.com/old-timey-terminal-styling/
     width: 8.5rem;
     height: 11rem;
     background-color: beige;
-    padding: 1rem;
     transform:
         translate(-50%,-50%)
         translateY(-30.01rem)
@@ -154,11 +154,25 @@ https://css-tricks.com/old-timey-terminal-styling/
         translate(7rem,5rem)
         rotate(10deg)
     ;
-    overflow-y: scroll;
     font-size: 12pt;
     font-family: "Courier New";
+    display: flex;
+}
+
+.scroll {
+    padding: calc(1rem - var(--border-width));
+    overflow-y: scroll;
     scrollbar-width: thin;
-    scrollbar-color: black transparent;
+    scrollbar-color: #00000080 transparent;
+}
+
+.scroll::-webkit-scrollbar {
+    width: calc(1rem / 8);
+    background-color: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: #00000080;
 }
 
 .paper h1 {
@@ -170,15 +184,6 @@ https://css-tricks.com/old-timey-terminal-styling/
     font-weight: bold;
 }
 
-.paper::-webkit-scrollbar {
-    width: calc(1rem / 8);
-    background-color: transparent;
-}
-
-.paper::-webkit-scrollbar-thumb {
-    background-color: #00000080;
-}
-
 .object, .group {
     position: absolute;
     left: 50%;
@@ -187,7 +192,7 @@ https://css-tricks.com/old-timey-terminal-styling/
 
 .object {
     box-sizing: border-box;
-    border: 8px solid black;
+    border: var(--border-width) solid black;
 }
 
 .object:hover:not(.selected) {

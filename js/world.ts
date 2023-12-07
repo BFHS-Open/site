@@ -3,13 +3,13 @@ export default class World {
     public selected: HTMLElement | undefined;
     public defaultTransform: string;
 
-    constructor(root: HTMLElement, objects: { elem: HTMLElement, transform: string }[]) {
+    constructor(root: HTMLElement, objects: { elem: HTMLElement, transform?: string }[]) {
         this.root = root;
         const self = this;
         for (const { elem, transform } of objects) {
             this.root.appendChild(elem);
             if (transform == null) continue;
-            elem.style.pointerEvents = "all";
+            elem.style.pointerEvents = "auto";
             elem.addEventListener("click", function(e) {
                 if (this === self.selected) return;
                 if (self.selected != null) self.selected.classList.remove("selected");
